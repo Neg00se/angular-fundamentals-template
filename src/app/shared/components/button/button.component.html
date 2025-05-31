@@ -1,4 +1,6 @@
 <div class="app-button">
-  <!-- Replace the text below with your code -->
-  Button
+  <fa-icon *ngIf="iconName" [icon]="['fas', iconName]"></fa-icon>
+  <span *ngIf="buttonText && iconName">&nbsp;</span>
+  <span *ngIf="buttonText">{{ buttonText }}</span>
+  <span *ngIf="!buttonText && !iconName">Кнопка</span>
 </div>

@@ -1,13 +1,23 @@
-<app-header></app-header>
+<app-header>
+  <div class="col-md-4 col-sm-2 offset-md-8">
+    <div class="row">
+      <p class="col-6 p-0 m-auto text-center">Your name</p>
+      <app-button class="col-6" buttonText="login"></app-button>
+    </div>
+  </div>
+</app-header>
 <div class="app-root">
   <!-- Search component -->
   <!--<app-search></app-search>-->
 
   <!-- Info component -->
-  <!--<app-info></app-info>-->
+  <app-info>
+    <app-button buttonText="add new course"></app-button>
+  </app-info>
 
   <!-- Course Card component -->
-  <!--<app-course-card></app-course-card>-->
+
+  <app-courses-list></app-courses-list>
 
   <!-- Login Form component -->
   <!--<app-login-form></app-login-form>-->
