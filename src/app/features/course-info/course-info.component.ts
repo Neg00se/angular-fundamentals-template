@@ -1,9 +1,12 @@
 import { Component, Input } from "@angular/core";
+import { ButtonComponent } from "@app/shared/components";
 
 @Component({
   selector: "app-course-info",
   templateUrl: "./course-info.component.html",
   styleUrls: ["./course-info.component.scss"],
+  standalone: true,
+  imports: [ButtonComponent],
 })
 export class CourseInfoComponent {
   @Input() title: string = "Title";

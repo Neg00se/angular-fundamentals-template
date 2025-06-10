@@ -14,7 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ButtonComponent } from "./shared/components";
 
 @NgModule({
-  declarations: [AppComponent, CourseInfoComponent],
+  declarations: [AppComponent],
   imports: [
     ButtonComponent,
     BrowserModule,

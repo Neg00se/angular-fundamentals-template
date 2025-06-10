@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { baseUrl } from "@app/shared/api.constants";
 import { RegistrationRequest } from "../interfaces/registration-interface";
 import { BehaviorSubject, Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -17,15 +18,18 @@ export class AuthService {
 
   constructor(
     private sessionStorage: SessionStorageService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   login(user: LoginRequest) {
-    this.http
-      .post<{ result: string }>(baseUrl + "/login", user)
-      .subscribe((response) => {
+    this.http.post<{ result: string }>(baseUrl + "/login", user).subscribe({
+      next: (response) => {
         this.sessionStorage.setToken(response.result);
-      });
+        this.isAuthorised = true;
+        this.router.navigate([""]);
+      },
+    });
   }
 
   logout() {
