@@ -1,42 +1,79 @@
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Course } from "@app/interfaces/course.interface";
+import { WriteCourse } from "@app/interfaces/write-course.interface";
+import { baseUrl } from "@app/shared/api.constants";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class CoursesService {
-    getAll() {
-        // Add your code here
-    }
+  constructor(private http: HttpClient) {}
 
-    createCourse(course: any) { // replace 'any' with the required interface
-        // Add your code here
-    }
+  getAll() {
+    return this.http.get<GetAllCoursesResponse>(baseUrl + "/courses/all");
+  }
 
-    editCourse(id: string, course: any) { // replace 'any' with the required interface
-        // Add your code here
-    }
+  createCourse(course: WriteCourse) {
+    return this.http.post(baseUrl + "/courses/add", course);
+  }
 
-    getCourse(id: string) {
-        // Add your code here
-    }
+  editCourse(id: string, course: WriteCourse) {
+    return this.http.put(baseUrl + "/courses/" + id, course);
+  }
 
-    deleteCourse(id: string) {
-        // Add your code here
-    }
+  getCourse(id: string) {
+    return this.http.get<GetCourseResponse>(baseUrl + "/courses/" + id);
+  }
 
-    filterCourses(value: string) {
-        // Add your code here
-    }
+  deleteCourse(id: string) {
+    return this.http.delete(baseUrl + "/courses/" + id);
+  }
 
-    getAllAuthors() {
-        // Add your code here
-    }
+  filterCourses(value: string) {
+    const params = new HttpParams({
+      fromString: value,
+    });
 
-    createAuthor(name: string) {
-        // Add your code here
-    }
+    return this.http.get<GetAllCoursesResponse>(baseUrl + "/courses/filter", {
+      params,
+    });
+  }
 
-    getAuthorById(id: string) {
-        // Add your code here
-    }
+  getAllAuthors() {
+    return this.http.get<GetAllAuthorsResponse>(baseUrl + "/authors/all");
+  }
+
+  createAuthor(name: string) {
+    return this.http.post(baseUrl + "/authors/add", { name });
+  }
+
+  getAuthorById(id: string) {
+    return this.http.get<GetAuthorResponse>(baseUrl + "/authors/" + id);
+  }
+}
+
+interface GetAllCoursesResponse {
+  success: boolean;
+  result: Course[];
+}
+
+interface GetCourseResponse {
+  success: boolean;
+  result: Course;
+}
+
+interface GetAllAuthorsResponse {
+  success: boolean;
+  result: Author[];
+}
+
+interface GetAuthorResponse {
+  success: boolean;
+  result: Author;
+}
+
+interface Author {
+  name: string;
+  id: string;
 }

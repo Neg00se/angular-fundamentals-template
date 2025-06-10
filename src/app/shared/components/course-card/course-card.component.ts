@@ -1,10 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { mockedAuthorsList } from "@app/shared/mocks/mocks";
+import { ButtonComponent } from "../button/button.component";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-course-card",
   templateUrl: "./course-card.component.html",
   styleUrls: ["./course-card.component.scss"],
+  standalone: true,
+  imports: [ButtonComponent, CommonModule],
 })
 export class CourseCardComponent implements OnInit {
   @Input() title: string = "Angular Basics";

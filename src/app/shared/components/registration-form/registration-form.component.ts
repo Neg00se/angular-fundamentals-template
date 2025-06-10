@@ -1,10 +1,20 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
+import { ButtonComponent } from "../button/button.component";
+import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-registration-form",
   templateUrl: "./registration-form.component.html",
   styleUrls: ["./registration-form.component.scss"],
+  standalone: true,
+  imports: [ButtonComponent, ReactiveFormsModule, CommonModule, RouterLink],
 })
 export class RegistrationFormComponent {
   registrationForm: FormGroup = new FormGroup({

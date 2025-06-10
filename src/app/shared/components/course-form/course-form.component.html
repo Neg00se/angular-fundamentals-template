@@ -70,7 +70,7 @@
             >create author</app-button
           >
         </div>
-        <div *ngIF="author?.invalid && (author?.dirty || author?.touched)">
+        <div *ngIf="author?.invalid && (author?.dirty || author?.touched)">
           <span *ngIf="author?.errors?.['pattern']" id="authorErrorMessage"
             >New author should contain only latin letters and numbers.</span
           >

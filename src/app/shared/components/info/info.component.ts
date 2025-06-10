@@ -4,6 +4,7 @@ import { Component, Input } from "@angular/core";
   selector: "app-info",
   templateUrl: "./info.component.html",
   styleUrls: ["./info.component.scss"],
+  standalone: true,
 })
 export class InfoComponent {
   @Input() title: string = "Your list is empty";

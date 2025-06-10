@@ -11,21 +11,25 @@
             id="email"
             name="email"
             placeholder="Input text"
-            ngModel
-            #email="ngModel"
+            [(ngModel)]="email"
+            #emailInput="ngModel"
             emailValidator
             required
           />
-          <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div
+            *ngIf="
+              emailInput.invalid && (emailInput.dirty || emailInput.touched)
+            "
+          >
             <span
-              *ngIf="email.errors?.['required']"
+              *ngIf="emailInput.errors?.['required']"
               id="emailErrorMessage"
               class="text-danger"
             >
               Email is required.
             </span>
             <span
-              *ngIf="email.errors?.['invalidEmail']"
+              *ngIf="emailInput.errors?.['invalidEmail']"
               id="emailErrorMessage"
               class="text-danger"
             >
@@ -40,14 +44,19 @@
             type="password"
             id="password"
             placeholder="Input text"
-            ngModel
-            #password="ngModel"
+            [(ngModel)]="password"
+            #passwordInput="ngModel"
             required
             name="password"
           />
-          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div
+            *ngIf="
+              passwordInput.invalid &&
+              (passwordInput.dirty || passwordInput.touched)
+            "
+          >
             <span
-              *ngIf="password.errors?.['required']"
+              *ngIf="passwordInput.errors?.['required']"
               id="passwordErrorMessage"
               class="text-danger"
             >
@@ -58,10 +67,11 @@
       </div>
       <div>
         <div class="form__action">
-          <app-button></app-button>
+          <app-button (click)="login()" buttonText="login"></app-button>
         </div>
         <div class="form__text">
-          If you don't have an account you may <strong>Registration</strong>
+          If you don't have an account you may
+          <strong><a routerLink="/registration">Registration</a></strong>
         </div>
       </div>
     </div>

@@ -1,32 +1,38 @@
 <app-header>
   <div class="col-md-4 col-sm-2 offset-md-8">
     <div class="row">
-      <p class="col-6 p-0 m-auto text-center">Your name</p>
-      <app-button class="col-6" buttonText="login"></app-button>
+      <p *ngIf="isAuthorized" class="col-6 p-0 m-auto text-center">Your name</p>
+      <app-button
+        routerLink="login"
+        class="col-6"
+        [ngClass]="{
+          'offset-6': !isAuthorized,
+        }"
+        [buttonText]="buttonText"
+        (click)="logout()"
+      ></app-button>
     </div>
   </div>
 </app-header>
 <div class="app-root">
+  <router-outlet />
   <!-- Search component -->
   <!--<app-search></app-search>-->
 
   <!-- Info component -->
-  <app-info>
-    <app-button buttonText="add new course"></app-button>
-  </app-info>
 
   <!-- Course Card component -->
 
-  <app-courses-list></app-courses-list>
+  <!-- <app-courses-list></app-courses-list> -->
 
   <!-- Login Form component -->
-  <app-login-form></app-login-form>
+  <!-- <app-login-form></app-login-form> -->
 
   <!-- Login Form component -->
-  <app-registration-form></app-registration-form>
+  <!-- <app-registration-form></app-registration-form> -->
 
   <!-- Login Form component -->
-  <app-course-form></app-course-form>
+  <!-- <app-course-form></app-course-form> -->
 
   <!-- Modal component -->
   <!-- <app-modal [message]="'Message'" [title]="'Title'" [okButtonText]="'Ok'" [cancelButtonText]="'Cancel'"></app-modal> -->
