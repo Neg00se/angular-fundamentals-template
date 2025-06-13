@@ -26,7 +26,7 @@ export const coursesFeatureKey = "courses";
 
 export interface CoursesState {
   // Add your code here
-  allCourses: Course[];
+  allCourses: Course[] | null;
   course: Course | null;
   isAllCoursesLoading: boolean;
   isSingleCourseLoading: boolean;
@@ -36,7 +36,7 @@ export interface CoursesState {
 
 export const initialState: CoursesState = {
   // Add your code here
-  allCourses: [],
+  allCourses: null,
   course: null,
   isAllCoursesLoading: false,
   isSingleCourseLoading: false,
@@ -119,7 +119,8 @@ export const coursesReducer = createReducer(
   on(requestEditCourseSuccess, (state, { course }) => ({
     ...state,
     course: course,
-    allCourses: state.allCourses.map((c) => (c.id === course.id ? course : c)),
+    allCourses:
+      state.allCourses?.map((c) => (c.id === course.id ? course : c)) || [],
     isSingleCourseLoading: false,
   })),
   on(requestEditCourseFail, (state, { error }) => ({
@@ -135,7 +136,7 @@ export const coursesReducer = createReducer(
   })),
   on(requestCreateCourseSuccess, (state, { course }) => ({
     ...state,
-    allCourses: [...state.allCourses, course],
+    allCourses: [...(state.allCourses ?? []), course],
     isSingleCourseLoading: false,
   })),
   on(requestCreateCourseFail, (state, { error }) => ({

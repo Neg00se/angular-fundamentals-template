@@ -29,7 +29,7 @@ export class CoursesStateFacade {
 
   isAllCoursesLoading$ = this.store.select(isAllCoursesLoadingSelector);
   isSingleCourseLoading$ = this.store.select(isSingleCourseLoadingSelector);
-  isSearchingSet$ = this.store.select(isSearchingStateSelector);
+  isSearchingState$ = this.store.select(isSearchingStateSelector);
   courses$ = this.store.select(getCourses);
   allCourses$ = this.store.select(getAllCourses);
   course$ = this.store.select(getCourse);

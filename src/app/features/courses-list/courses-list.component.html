@@ -6,11 +6,11 @@
   >
     <app-course-card
       *ngFor="let course of courses$ | async"
-      [title]="course.title"
-      [description]="course.description"
-      [duration]="course.duration"
+      [title]="course.title || ''"
+      [description]="course.description || ''"
+      [duration]="course.duration || 0"
       [creationDate]="course.creationDate"
-      [authorIds]="course.authors"
+      [authorIds]="course.authors || []"
     >
       <app-button class="col-5 me-3" iconName="pencil"> </app-button>
       <app-button class="col-5" iconName="trash-can"> </app-button>

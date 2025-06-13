@@ -10,7 +10,7 @@ import {
 import { mockedCoursesList } from "@app/shared/mocks/mocks";
 import { CoursesStateFacade } from "@app/store/courses/courses.facade";
 import { UserStoreService } from "@app/user/services/user-store.service";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 
 @Component({
   selector: "app-courses-list",
@@ -38,7 +38,9 @@ export class CoursesListComponent implements OnInit {
   ngOnInit(): void {
     this.coursesFacade.getAllCourses();
 
-    this.courses$ = this.coursesFacade.allCourses$;
+    this.courses$ = this.coursesFacade.allCourses$.pipe(
+      map((courses) => courses ?? [])
+    );
     this.isLoading$ = this.coursesFacade.isAllCoursesLoading$;
   }
 

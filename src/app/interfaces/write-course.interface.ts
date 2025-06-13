@@ -1,6 +1,6 @@
 export interface WriteCourse {
-  titile: string;
-  description: string;
-  duration: number;
-  authors: string[];
+  titile?: string;
+  description?: string;
+  duration?: number;
+  authors?: string[];
 }

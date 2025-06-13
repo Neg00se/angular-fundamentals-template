@@ -1,8 +1,8 @@
 export interface Course {
-  id: string;
-  title: string;
-  description: string;
-  creationDate: Date;
-  duration: number; // in minutes
-  authors: string[]; // array of author IDs
+  id?: string;
+  title?: string;
+  description?: string;
+  creationDate?: Date;
+  duration?: number; // in minutes
+  authors?: string[]; // array of author IDs
 }
