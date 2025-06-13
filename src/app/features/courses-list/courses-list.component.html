@@ -1,15 +1,21 @@
-<ng-container *ngIf="courses.length > 0; else noCourses">
-  <app-course-card
-    *ngFor="let course of courses"
-    [title]="course.title"
-    [description]="course.description"
-    [duration]="course.duration"
-    [creationDate]="course.creationDate"
-    [authorIds]="course.authors"
+<div *ngIf="isLoading$ | async">Loading Courses....</div>
+
+<ng-container *ngIf="!(isLoading$ | async)">
+  <ng-container
+    *ngIf="(courses$ | async) && (courses$ | async)?.length; else noCourses"
   >
-    <app-button class="col-5 me-3" iconName="pencil"> </app-button>
-    <app-button class="col-5" iconName="trash-can"> </app-button>
-  </app-course-card>
+    <app-course-card
+      *ngFor="let course of courses$ | async"
+      [title]="course.title"
+      [description]="course.description"
+      [duration]="course.duration"
+      [creationDate]="course.creationDate"
+      [authorIds]="course.authors"
+    >
+      <app-button class="col-5 me-3" iconName="pencil"> </app-button>
+      <app-button class="col-5" iconName="trash-can"> </app-button>
+    </app-course-card>
+  </ng-container>
 </ng-container>
 
 <ng-template #noCourses>

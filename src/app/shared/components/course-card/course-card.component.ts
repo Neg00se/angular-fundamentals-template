@@ -14,7 +14,7 @@ export class CourseCardComponent implements OnInit {
   @Input() title: string = "Angular Basics";
   @Input() description: string =
     "Learn Angular from scratch with this comprehensive course.";
-  @Input() creationDate: string = "01.01.2023";
+  @Input() creationDate: Date = new Date();
   @Input() duration: number = 120; // in minutes
   @Input() authorIds: string[] = [];
   authors: string[] = ["John Doe", "Jane Smith"]; // Mocked authors for demonstration

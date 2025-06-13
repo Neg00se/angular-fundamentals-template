@@ -15,11 +15,11 @@ export class CoursesService {
   }
 
   createCourse(course: WriteCourse) {
-    return this.http.post(baseUrl + "/courses/add", course);
+    return this.http.post<Course>(baseUrl + "/courses/add", course);
   }
 
   editCourse(id: string, course: WriteCourse) {
-    return this.http.put(baseUrl + "/courses/" + id, course);
+    return this.http.put<Course>(baseUrl + "/courses/" + id, course);
   }
 
   getCourse(id: string) {
