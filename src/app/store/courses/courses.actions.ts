@@ -14,7 +14,7 @@ export const requestAllCoursesSuccess = createAction(
 );
 export const requestAllCoursesFail = createAction(
   CoursesConstants.REQUEST_ALL_COURSES_FAIL,
-  props<{ error: CustomError }>()
+  props<{ error: string }>()
 );
 
 export const requestSingleCourse = createAction(
@@ -27,7 +27,7 @@ export const requestSingleCourseSuccess = createAction(
 );
 export const requestSingleCourseFail = createAction(
   CoursesConstants.REQUEST_SINGLE_COURSE_FAIL,
-  props<{ error: CustomError }>()
+  props<{ error: string }>()
 );
 
 export const requestFilteredCourses = createAction(
@@ -40,7 +40,7 @@ export const requestFilteredCoursesSuccess = createAction(
 );
 export const requestFilteredCoursesFail = createAction(
   CoursesConstants.REQUEST_FILTERED_COURSES_FAIL,
-  props<{ error: CustomError }>()
+  props<{ error: string }>()
 );
 
 export const requestDeleteCourse = createAction(
@@ -52,7 +52,7 @@ export const requestDeleteCourseSuccess = createAction(
 );
 export const requestDeleteCourseFail = createAction(
   CoursesConstants.REQUEST_DELETE_COURSE_FAIL,
-  props<{ error: CustomError }>()
+  props<{ error: string }>()
 );
 
 export const requestEditCourse = createAction(
@@ -65,7 +65,7 @@ export const requestEditCourseSuccess = createAction(
 );
 export const requestEditCourseFail = createAction(
   CoursesConstants.REQUEST_EDIT_COURSE_SUCCESS,
-  props<{ error: CustomError }>()
+  props<{ error: string }>()
 );
 
 export const requestCreateCourse = createAction(
@@ -78,5 +78,5 @@ export const requestCreateCourseSuccess = createAction(
 );
 export const requestCreateCourseFail = createAction(
   CoursesConstants.REQUEST_CREATE_COURSE_FAIL,
-  props<{ error: CustomError }>()
+  props<{ error: string }>()
 );

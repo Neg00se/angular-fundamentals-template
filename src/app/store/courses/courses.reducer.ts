@@ -59,7 +59,7 @@ export const coursesReducer = createReducer(
   on(requestAllCoursesFail, (state, { error }) => ({
     ...state,
     isAllCoursesLoading: false,
-    errorMessage: error.message,
+    errorMessage: error,
   })),
 
   on(requestSingleCourse, (state) => ({
@@ -75,7 +75,7 @@ export const coursesReducer = createReducer(
   on(requestSingleCourseFail, (state, { error }) => ({
     ...state,
     isSingleCourseLoading: false,
-    errorMessage: error.message,
+    errorMessage: error,
   })),
 
   on(requestFilteredCourses, (state) => ({
@@ -94,7 +94,7 @@ export const coursesReducer = createReducer(
     ...state,
     isSearchState: false,
     isAllCoursesLoading: false,
-    errorMessage: error.message,
+    errorMessage: error,
   })),
   on(requestDeleteCourse, (state) => ({
     ...state,
@@ -108,7 +108,7 @@ export const coursesReducer = createReducer(
   on(requestDeleteCourseFail, (state, { error }) => ({
     ...state,
     isSingleCourseLoading: false,
-    errorMessage: error.message,
+    errorMessage: error,
   })),
 
   on(requestEditCourse, (state) => ({
@@ -125,7 +125,7 @@ export const coursesReducer = createReducer(
   on(requestEditCourseFail, (state, { error }) => ({
     ...state,
     isSingleCourseLoading: false,
-    errorMessage: error.message,
+    errorMessage: error,
   })),
 
   on(requestCreateCourse, (state) => ({
@@ -141,7 +141,7 @@ export const coursesReducer = createReducer(
   on(requestCreateCourseFail, (state, { error }) => ({
     ...state,
     isSingleCourseLoading: false,
-    errorMessage: error.message,
+    errorMessage: error,
   }))
 ); // Add your code here
 
